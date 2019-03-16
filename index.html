@@ -1,2 +1,18 @@
 # paste html code here, as link html files to css script/code
 <lin rel=stylesheet href="style.css" type="text/css">
+from flask import Flask
+from flask import render_template
+import visionClient
+app = Flask(__name__)
+
+@app.route("/home")
+def home():
+    return render_template("recycle.html")
+
+@app.route("/run")
+def run():
+    return visionClient.run()
+
+@app.route("/website-mock.jpg")
+def foo():
+    return send_file("templates/website-mock.jpg")
